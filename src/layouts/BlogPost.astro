@@ -1,0 +1,97 @@
+---
+// src/layouts/BlogPost.astro
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  fecha: string;
+  tiempo: string;
+  categoria: string;
+}
+
+const { title, description, canonical, fecha, tiempo, categoria } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+
+  <nav class="breadcrumb" aria-label="Ruta de navegación">
+    <div class="container">
+      <ol>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li aria-current="page">{title}</li>
+      </ol>
+    </div>
+  </nav>
+
+  <article class="blog-article">
+    <header class="article-header">
+      <div class="container">
+        <span class="badge badge-green">{categoria}</span>
+        <h1>{title}</h1>
+        <div class="article-meta">
+          <span>📅 {fecha}</span>
+          <span>·</span>
+          <span>⏱ {tiempo} lectura</span>
+          <span>·</span>
+          <span>Centro Puppy Home</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="article-body">
+      <div class="container">
+        <div class="article-content">
+          <slot />
+        </div>
+        <aside class="article-aside">
+          <div class="aside-card">
+            <h3>¿Buscas un cachorro en Granada?</h3>
+            <p>Somos especialistas en Chihuahua, Pomerania y Caniche Toy en Granada.</p>
+            <a href="/cachorros-granada/" class="btn btn-primary" style="width:100%;justify-content:center;margin-bottom:1rem;">Ver cachorros</a>
+            <a href="/#contacto" class="btn btn-outline" style="width:100%;justify-content:center;">Contactar</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </article>
+
+</BaseLayout>
+
+<style>
+  .breadcrumb { background: var(--warm-white); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+  .breadcrumb ol { list-style: none; display: flex; gap: 0.5rem; font-size: 0.85rem; color: var(--text-light); flex-wrap: wrap; }
+  .breadcrumb li:not(:last-child)::after { content: ' /'; }
+  .breadcrumb a { color: var(--text-light); }
+
+  .article-header { background: linear-gradient(135deg, #d4e8d6, #fdf8f2); padding: 4rem 0; }
+  .article-header .badge { margin-bottom: 1rem; }
+  .article-header h1 { margin-bottom: 1rem; }
+  .article-meta { display: flex; gap: 0.5rem; font-size: 0.85rem; color: var(--text-light); flex-wrap: wrap; }
+
+  .article-body > .container {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 4rem;
+    align-items: start;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .article-content { max-width: 720px; }
+  .article-content :global(h2) { margin: 2.5rem 0 1rem; }
+  .article-content :global(h3) { margin: 2rem 0 0.75rem; }
+  .article-content :global(p) { margin-bottom: 1.2rem; }
+  .article-content :global(ul), .article-content :global(ol) { margin: 1rem 0 1.5rem 1.5rem; color: var(--text-mid); }
+  .article-content :global(li) { margin-bottom: 0.5rem; }
+  .article-content :global(strong) { color: var(--brown-deep); }
+
+  .aside-card { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; position: sticky; top: 100px; }
+  .aside-card h3 { margin-bottom: 0.75rem; font-size: 1.1rem; }
+
+  @media (max-width: 900px) {
+    .article-body > .container { grid-template-columns: 1fr; }
+  }
+</style>

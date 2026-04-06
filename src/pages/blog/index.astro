@@ -1,0 +1,122 @@
+---
+// src/pages/blog/index.astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const posts = [
+  {
+    slug: 'cuidados-cachorro-chihuahua',
+    titulo: 'Cuidados básicos para tu cachorro Chihuahua',
+    categoria: '🐕 Chihuahua',
+    extracto: 'Todo lo que necesitas saber en los primeros meses con tu Chihuahua: alimentación, vacunas, socialización y los errores más comunes a evitar.',
+    fecha: '15 marzo 2024',
+    tiempo: '6 min'
+  },
+  {
+    slug: 'pomerania-caracter',
+    titulo: 'El carácter del Pomerania: ¿es la raza para ti?',
+    categoria: '🦊 Pomerania',
+    extracto: 'Descubre la personalidad real del Pomerania antes de adoptarlo. Energía, sociabilidad, cuidados del pelaje y convivencia con otros animales.',
+    fecha: '2 marzo 2024',
+    tiempo: '5 min'
+  },
+  {
+    slug: 'primer-cachorro-granada',
+    titulo: 'Guía para comprar tu primer cachorro en Granada',
+    categoria: '📝 Guías',
+    extracto: 'Preguntas que debes hacer antes de comprar, señales de alerta y cómo identificar un centro responsable en Granada.',
+    fecha: '18 febrero 2024',
+    tiempo: '8 min'
+  },
+  {
+    slug: 'alimentacion-perros-pequenos',
+    titulo: 'Alimentación de perros pequeños: guía completa',
+    categoria: '🥗 Nutrición',
+    extracto: 'Qué comen los perros de razas pequeñas, cuántas veces al día y qué alimentos debes evitar. Consejos prácticos para Chihuahua, Pomerania y Caniche.',
+    fecha: '5 febrero 2024',
+    tiempo: '7 min'
+  },
+  {
+    slug: 'caniche-toy-hipoalergenico',
+    titulo: 'Caniche Toy: el perro hipoalergénico que necesitas conocer',
+    categoria: '🐩 Caniche',
+    extracto: 'Analizamos por qué el Caniche Toy es la mejor opción para personas con alergias y todo lo que debes saber antes de adoptarlo.',
+    fecha: '22 enero 2024',
+    tiempo: '5 min'
+  },
+];
+---
+
+<BaseLayout
+  title="Blog sobre Cachorros | Consejos y Guías | Centro Puppy Home Granada"
+  description="Blog con consejos prácticos sobre cuidados de cachorros, alimentación, educación y salud canina. Especialistas en Chihuahua, Pomerania y Caniche Toy en Granada."
+  canonical="https://centropuppyhome.com/blog/"
+>
+
+  <nav class="breadcrumb" aria-label="Ruta de navegación">
+    <div class="container">
+      <ol>
+        <li><a href="/">Inicio</a></li>
+        <li aria-current="page">Blog</li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="blog-hero">
+    <div class="container">
+      <span class="badge badge-green">Blog</span>
+      <h1>Consejos para tu cachorro</h1>
+      <p>Artículos útiles sobre cuidados, alimentación, educación y salud canina escritos por nuestro equipo en Granada.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="blog-grid">
+        {posts.map(post => (
+          <a href={`/blog/${post.slug}/`} class="blog-post-card card">
+            <div class="post-cat">{post.categoria}</div>
+            <h2>{post.titulo}</h2>
+            <p>{post.extracto}</p>
+            <div class="post-meta">
+              <span>{post.fecha}</span>
+              <span>·</span>
+              <span>{post.tiempo} lectura</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .breadcrumb { background: var(--warm-white); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+  .breadcrumb ol { list-style: none; display: flex; gap: 0.5rem; font-size: 0.85rem; color: var(--text-light); }
+  .breadcrumb li:not(:last-child)::after { content: ' /'; }
+  .breadcrumb a { color: var(--text-light); }
+
+  .blog-hero { background: linear-gradient(135deg, #d4e8d6, #fdf8f2); padding: 5rem 0 4rem; }
+  .blog-hero .badge { margin-bottom: 1rem; }
+  .blog-hero h1 { margin-bottom: 1rem; }
+  .blog-hero p { font-size: 1.1rem; max-width: 600px; }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .blog-post-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    padding: 2.5rem;
+  }
+  .post-cat { font-size: 0.85rem; font-weight: 600; color: var(--text-light); margin-bottom: 0.75rem; }
+  .blog-post-card h2 { font-size: 1.3rem; margin-bottom: 0.75rem; }
+  .blog-post-card p { font-size: 0.95rem; margin-bottom: 1.5rem; }
+  .post-meta { font-size: 0.8rem; color: var(--text-light); display: flex; gap: 0.5rem; }
+
+  @media (max-width: 768px) { .blog-grid { grid-template-columns: 1fr; } }
+</style>

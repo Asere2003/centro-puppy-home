@@ -1,0 +1,112 @@
+---
+// src/pages/chihuahua-granada/index.astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Chihuahua en Granada | Cachorros Chihuahua | Centro Puppy Home"
+  description="Compra cachorros Chihuahua en Granada con garantía sanitaria. Chihuahuas de pelo corto y largo, con pedigrí. Visítanos en Granada sin compromiso."
+  canonical="https://centropuppyhome.com/chihuahua-granada/"
+>
+
+  <nav class="breadcrumb" aria-label="Ruta de navegación">
+    <div class="container">
+      <ol>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/cachorros-granada/">Cachorros en Granada</a></li>
+        <li aria-current="page">Chihuahua en Granada</li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="landing-hero">
+    <div class="container">
+      <div class="landing-hero-content">
+        <span class="badge badge-gold">Disponible ahora · Granada</span>
+        <h1>Chihuahua en Granada</h1>
+        <p class="lead">El perro más pequeño del mundo con una personalidad que llena cualquier espacio. Cachorros Chihuahua en Granada con garantía sanitaria, pedigrí y asesoramiento completo.</p>
+        <a href="/#contacto" class="btn btn-primary">Consultar disponibilidad</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content-two-col">
+      <div class="content-main">
+        <h2>El Chihuahua: todo sobre esta raza</h2>
+        <p>El Chihuahua es originario de México y es reconocido por ser la raza de perro más pequeña del mundo. Pese a su tamaño diminuto, tiene un carácter enorme: valiente, leal y con una personalidad muy marcada.</p>
+
+        <h3>Características del Chihuahua</h3>
+        <div class="specs-grid">
+          <div class="spec-item"><strong>Peso adulto</strong><span>1.5 – 3 kg</span></div>
+          <div class="spec-item"><strong>Esperanza de vida</strong><span>12 – 18 años</span></div>
+          <div class="spec-item"><strong>Nivel de actividad</strong><span>Moderado</span></div>
+          <div class="spec-item"><strong>Pelo</strong><span>Corto o largo</span></div>
+          <div class="spec-item"><strong>Ideal para</strong><span>Pisos, personas mayores</span></div>
+          <div class="spec-item"><strong>Con niños</strong><span>Bien, con socialización</span></div>
+        </div>
+
+        <h3>¿Es el Chihuahua para ti?</h3>
+        <p>El Chihuahua es ideal si vives en un piso en Granada y buscas un compañero fiel que no ocupe mucho espacio. Es un perro muy apegado a su dueño y puede ser algo territorial, por lo que la socialización desde cachorro es clave.</p>
+        <p>No necesita grandes cantidades de ejercicio, aunque disfruta de sus paseos diarios. Su tamaño lo hace perfecto para llevar a todas partes.</p>
+
+        <h3>Chihuahua de pelo corto vs. pelo largo</h3>
+        <p>Ambas variedades tienen el mismo carácter. La diferencia principal está en el mantenimiento del pelaje: el de pelo largo requiere cepillado regular, mientras que el de pelo corto es prácticamente de bajo mantenimiento.</p>
+
+        <h2>Comprar Chihuahua en Granada con garantías</h2>
+        <p>En Centro Puppy Home disponemos de cachorros Chihuahua en Granada durante prácticamente todo el año. Todos nuestros cachorros:</p>
+        <ul style="margin: 1rem 0 1rem 1.5rem; color: var(--text-mid);">
+          <li>Salen con vacunación completa y cartilla veterinaria</li>
+          <li>Llevan microchip registrado</li>
+          <li>Han sido desparasitados (interno y externo)</li>
+          <li>Incluyen certificado veterinario de salud</li>
+          <li>Opción con pedigrí (LOE)</li>
+        </ul>
+      </div>
+
+      <aside class="content-aside">
+        <div class="aside-card">
+          <h3>¿Te interesa un Chihuahua?</h3>
+          <p>Contáctanos para saber qué cachorros tenemos disponibles ahora mismo en Granada.</p>
+          <a href="tel:+34600000000" class="btn btn-primary" style="width: 100%; justify-content: center; margin-bottom: 1rem;">📞 Llamar</a>
+          <a href="/#contacto" class="btn btn-outline" style="width: 100%; justify-content: center;">Enviar mensaje</a>
+        </div>
+
+        <div class="aside-card aside-card--alt">
+          <h4>También te puede interesar</h4>
+          <ul style="list-style: none;">
+            <li style="margin-bottom: 0.75rem;"><a href="/pomerania-granada/">→ Pomerania en Granada</a></li>
+            <li style="margin-bottom: 0.75rem;"><a href="/caniche-toy-granada/">→ Caniche Toy en Granada</a></li>
+            <li><a href="/cachorros-granada/">→ Ver todas las razas</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .breadcrumb { background: var(--warm-white); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+  .breadcrumb ol { list-style: none; display: flex; gap: 0.5rem; font-size: 0.85rem; color: var(--text-light); }
+  .breadcrumb li:not(:last-child)::after { content: ' /'; }
+  .breadcrumb a { color: var(--text-light); }
+  .landing-hero { background: linear-gradient(135deg, #fce8d0, #fdf8f2); padding: 5rem 0; }
+  .landing-hero-content { max-width: 700px; }
+  .landing-hero-content .badge { margin-bottom: 1.5rem; }
+  .landing-hero-content h1 { margin-bottom: 1.5rem; }
+  .lead { font-size: 1.1rem; margin-bottom: 2rem; }
+  .content-two-col { display: grid; grid-template-columns: 1fr 340px; gap: 4rem; align-items: start; }
+  .content-main h2 { margin: 2rem 0 1rem; }
+  .content-main h2:first-child { margin-top: 0; }
+  .content-main h3 { margin: 1.5rem 0 0.75rem; }
+  .specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+  .spec-item { background: var(--warm-white); padding: 0.75rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border); }
+  .spec-item strong { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-light); margin-bottom: 0.25rem; }
+  .spec-item span { font-weight: 600; color: var(--brown-deep); }
+  .aside-card { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; }
+  .aside-card h3 { margin-bottom: 0.75rem; }
+  .aside-card h4 { margin-bottom: 0.75rem; font-size: 1rem; }
+  .aside-card--alt { background: var(--warm-white); }
+  @media (max-width: 900px) { .content-two-col { grid-template-columns: 1fr; } }
+</style>

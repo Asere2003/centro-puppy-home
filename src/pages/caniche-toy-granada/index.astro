@@ -1,0 +1,105 @@
+---
+// src/pages/caniche-toy-granada/index.astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Caniche Toy en Granada | Cachorros Caniche | Centro Puppy Home"
+  description="Compra cachorros Caniche Toy en Granada. Hipoalergénicos, inteligentes y perfectos para familias. Garantía sanitaria. Consulta disponibilidad en Granada."
+  canonical="https://centropuppyhome.com/caniche-toy-granada/"
+>
+
+  <nav class="breadcrumb" aria-label="Ruta de navegación">
+    <div class="container">
+      <ol>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/cachorros-granada/">Cachorros en Granada</a></li>
+        <li aria-current="page">Caniche Toy en Granada</li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="landing-hero">
+    <div class="container">
+      <div class="landing-hero-content">
+        <span class="badge badge-rose">Consultar disponibilidad</span>
+        <h1>Caniche Toy en Granada</h1>
+        <p class="lead">El perro más inteligente y elegante. El Caniche Toy es perfecto para alérgicos, familias con niños y personas que buscan un perro fácil de educar. Consulta disponibilidad en Granada.</p>
+        <a href="/#contacto" class="btn btn-primary">Preguntar disponibilidad</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content-two-col">
+      <div class="content-main">
+        <h2>El Caniche Toy: inteligencia y elegancia en tamaño mini</h2>
+        <p>El Caniche (o Poodle) es reconocido como una de las razas más inteligentes del mundo. La variedad Toy es la más pequeña, con todo el carácter y capacidad del Caniche estándar en un tamaño compacto perfecto para la vida en ciudad.</p>
+
+        <h3>Características del Caniche Toy</h3>
+        <div class="specs-grid">
+          <div class="spec-item"><strong>Peso adulto</strong><span>2 – 4 kg</span></div>
+          <div class="spec-item"><strong>Esperanza de vida</strong><span>14 – 18 años</span></div>
+          <div class="spec-item"><strong>Nivel de actividad</strong><span>Moderado-alto</span></div>
+          <div class="spec-item"><strong>Pelaje</strong><span>Rizado, no suelta pelo</span></div>
+          <div class="spec-item"><strong>Ideal para</strong><span>Alérgicos, primera mascota</span></div>
+          <div class="spec-item"><strong>Con niños</strong><span>Excelente</span></div>
+        </div>
+
+        <h3>¿Por qué el Caniche Toy es ideal para alérgicos?</h3>
+        <p>El Caniche tiene un pelaje rizado especial que no muda como otras razas. Esto reduce enormemente la cantidad de pelo y caspa en el ambiente, lo que lo convierte en una de las razas más recomendadas para personas con alergias.</p>
+        <p>Aunque ningún perro es 100% hipoalergénico, el Caniche Toy es, sin duda, una de las mejores opciones para convivir con alergias.</p>
+
+        <h3>Inteligencia y educación del Caniche Toy</h3>
+        <p>El Caniche ocupa el puesto número 2 en el ranking mundial de inteligencia canina. Aprende comandos con una rapidez sorprendente y disfruta enormemente de los juegos de inteligencia y la obediencia.</p>
+        <p>Esta combinación lo hace ideal para familias que quieren un perro educado, obediente y con quien compartir actividades.</p>
+
+        <h2>Caniche Toy en Granada: disponibilidad</h2>
+        <p>Los cachorros Caniche Toy son muy solicitados en Granada. Contáctanos para conocer la disponibilidad actual y apuntarte a la lista de espera para la próxima camada.</p>
+      </div>
+
+      <aside class="content-aside">
+        <div class="aside-card">
+          <h3>Consulta disponibilidad</h3>
+          <p>Los Caniche Toy tienen mucha demanda. Contáctanos para reservar o apuntarte a la lista de espera.</p>
+          <a href="tel:+34600000000" class="btn btn-primary" style="width: 100%; justify-content: center; margin-bottom: 1rem;">📞 Llamar</a>
+          <a href="/#contacto" class="btn btn-outline" style="width: 100%; justify-content: center;">Enviar mensaje</a>
+        </div>
+        <div class="aside-card aside-card--alt">
+          <h4>También disponible</h4>
+          <ul style="list-style: none;">
+            <li style="margin-bottom: 0.75rem;"><a href="/chihuahua-granada/">→ Chihuahua en Granada</a></li>
+            <li style="margin-bottom: 0.75rem;"><a href="/pomerania-granada/">→ Pomerania en Granada</a></li>
+            <li><a href="/cachorros-granada/">→ Ver todas las razas</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .breadcrumb { background: var(--warm-white); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+  .breadcrumb ol { list-style: none; display: flex; gap: 0.5rem; font-size: 0.85rem; color: var(--text-light); }
+  .breadcrumb li:not(:last-child)::after { content: ' /'; }
+  .breadcrumb a { color: var(--text-light); }
+  .landing-hero { background: linear-gradient(135deg, #e8f4e8, #fdf8f2); padding: 5rem 0; }
+  .landing-hero-content { max-width: 700px; }
+  .landing-hero-content .badge { margin-bottom: 1.5rem; }
+  .landing-hero-content h1 { margin-bottom: 1.5rem; }
+  .lead { font-size: 1.1rem; margin-bottom: 2rem; }
+  .content-two-col { display: grid; grid-template-columns: 1fr 340px; gap: 4rem; align-items: start; }
+  .content-main h2 { margin: 2rem 0 1rem; }
+  .content-main h2:first-child { margin-top: 0; }
+  .content-main h3 { margin: 1.5rem 0 0.75rem; }
+  .specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+  .spec-item { background: var(--warm-white); padding: 0.75rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border); }
+  .spec-item strong { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-light); margin-bottom: 0.25rem; }
+  .spec-item span { font-weight: 600; color: var(--brown-deep); }
+  .aside-card { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; }
+  .aside-card h3 { margin-bottom: 0.75rem; }
+  .aside-card h4 { margin-bottom: 0.75rem; font-size: 1rem; }
+  .aside-card--alt { background: var(--warm-white); }
+  @media (max-width: 900px) { .content-two-col { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,269 @@
+---
+// src/pages/cachorros-granada/index.astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Cachorros disponibles en Granada",
+  "description": "Razas toy disponibles en Centro Puppy Home, Granada",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Chihuahua en Granada", "url": "https://centropuppyhome.com/chihuahua-granada/" },
+    { "@type": "ListItem", "position": 2, "name": "Lulú de Pomerania en Granada", "url": "https://centropuppyhome.com/pomerania-granada/" },
+    { "@type": "ListItem", "position": 3, "name": "Yorkshire Terrier en Granada", "url": "https://centropuppyhome.com/yorkshire-granada/" },
+    { "@type": "ListItem", "position": 4, "name": "Bichón Maltés en Granada", "url": "https://centropuppyhome.com/bichon-maltes-granada/" },
+    { "@type": "ListItem", "position": 5, "name": "Caniche Toy en Granada", "url": "https://centropuppyhome.com/caniche-toy-granada/" }
+  ]
+};
+---
+
+<BaseLayout
+  title="Comprar Cachorros en Granada | 5 Razas Toy | Centro Puppy Home"
+  description="Compra cachorros toy en Granada con garantía sanitaria. Chihuahua, Pomerania, Yorkshire, Bichón Maltés y Caniche Toy. Criados en semilibertad. Núcleo Zoológico 175GR00211."
+  canonical="https://centropuppyhome.com/cachorros-granada/"
+  schema={schema}
+>
+
+  <nav class="breadcrumb" aria-label="Ruta de navegación">
+    <div class="container">
+      <ol>
+        <li><a href="/">Inicio</a></li>
+        <li aria-current="page">Cachorros en Granada</li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="landing-hero">
+    <div class="container">
+      <div class="landing-hero-content">
+        <span class="badge badge-gold">5 razas toy · Granada · Núcleo Zoológico 175GR00211</span>
+        <h1>Comprar cachorros en Granada</h1>
+        <p class="lead">Centro canino de cría responsable en Granada. Cachorros toy nacidos en España, en semilibertad y entorno rural natural. Chihuahua, Pomerania, Yorkshire, Bichón Maltés y Caniche Toy con garantía sanitaria completa.</p>
+        <div class="hero-ctas">
+          <a href="#razas" class="btn btn-primary">Ver razas disponibles</a>
+          <a href="tel:+34958269455" class="btn btn-outline">📞 958 269 455</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="razas">
+    <div class="container">
+      <h2>Razas disponibles en Granada</h2>
+      <p class="section-intro">Nos especializamos en razas toy criadas con dedicación y amor en nuestro centro en la vega de Granada. Todos los cachorros nacen en semilibertad, en un entorno rural natural.</p>
+
+      <div class="razas-landing-grid">
+
+        <article class="raza-feature card">
+          <div class="raza-feature-img" style="background: linear-gradient(135deg,#fce8d0,#f5d4b4)"><span>🐕</span></div>
+          <div class="raza-feature-body">
+            <span class="badge badge-gold">Disponible</span>
+            <h3>Chihuahua en Granada</h3>
+            <p>El perro más pequeño del mundo con una personalidad enorme. Se adapta perfectamente a pisos y es muy fiel a su familia. Disponemos de cachorros durante todo el año.</p>
+            <ul class="raza-features">
+              <li>✓ Peso adulto: 1,5 – 3 kg</li>
+              <li>✓ Vida: 12–18 años</li>
+              <li>✓ Ideal para pisos</li>
+              <li>✓ Muy fiel y protector</li>
+            </ul>
+            <a href="/chihuahua-granada/" class="btn btn-primary">Ver cachorros Chihuahua</a>
+          </div>
+        </article>
+
+        <article class="raza-feature card">
+          <div class="raza-feature-img" style="background: linear-gradient(135deg,#fef3d0,#fde9a0)"><span>🦊</span></div>
+          <div class="raza-feature-body">
+            <span class="badge badge-gold">Disponible</span>
+            <h3>Lulú de Pomerania en Granada</h3>
+            <p>El Pomerania es uno de los perros más demandados. Con su aspecto de peluche y su personalidad juguetona conquista a toda la familia desde el primer momento.</p>
+            <ul class="raza-features">
+              <li>✓ Peso adulto: 2 – 3,5 kg</li>
+              <li>✓ Pelaje espectacular</li>
+              <li>✓ Muy sociable</li>
+              <li>✓ Fácil adaptación</li>
+            </ul>
+            <a href="/pomerania-granada/" class="btn btn-primary">Ver cachorros Pomerania</a>
+          </div>
+        </article>
+
+        <article class="raza-feature card">
+          <div class="raza-feature-img" style="background: linear-gradient(135deg,#e8eef8,#c8d8f0)"><span>🐶</span></div>
+          <div class="raza-feature-body">
+            <span class="badge badge-gold">Disponible</span>
+            <h3>Yorkshire Terrier en Granada</h3>
+            <p>Elegancia, carácter y amor en formato pequeño. El Yorkshire apenas suelta pelo, lo que lo convierte en una opción ideal para alérgicos y amantes de la limpieza.</p>
+            <ul class="raza-features">
+              <li>✓ Peso adulto: 2 – 4 kg</li>
+              <li>✓ Casi no suelta pelo</li>
+              <li>✓ Muy inteligente</li>
+              <li>✓ Gran carácter</li>
+            </ul>
+            <a href="/yorkshire-granada/" class="btn btn-primary">Ver cachorros Yorkshire</a>
+          </div>
+        </article>
+
+        <article class="raza-feature card">
+          <div class="raza-feature-img" style="background: linear-gradient(135deg,#f7e8f0,#f0d0e4)"><span>🤍</span></div>
+          <div class="raza-feature-body">
+            <span class="badge badge-gold">Disponible</span>
+            <h3>Bichón Maltés en Granada</h3>
+            <p>Dulzura, elegancia y compañía perfecta. El Bichón Maltés Coreano tiene un rostro redondeado y ojos grandes que transmiten una ternura única. Ideal para toda la familia.</p>
+            <ul class="raza-features">
+              <li>✓ Peso adulto: 2 – 3,5 kg</li>
+              <li>✓ Pelaje blanco y sedoso</li>
+              <li>✓ Muy afectuoso</li>
+              <li>✓ Con niños: excelente</li>
+            </ul>
+            <a href="/bichon-maltes-granada/" class="btn btn-primary">Ver cachorros Bichón Maltés</a>
+          </div>
+        </article>
+
+        <article class="raza-feature card">
+          <div class="raza-feature-img" style="background: linear-gradient(135deg,#e8f4e8,#d0ebd0)"><span>🐩</span></div>
+          <div class="raza-feature-body">
+            <span class="badge badge-gold">Disponible</span>
+            <h3>Caniche Toy en Granada</h3>
+            <p>El Caniche es una de las razas más inteligentes del mundo. La variedad Toy es hipoalergénica, no suelta pelo y aprende comandos con una rapidez sorprendente.</p>
+            <ul class="raza-features">
+              <li>✓ Peso adulto: 2 – 4 kg</li>
+              <li>✓ Hipoalergénico</li>
+              <li>✓ Muy inteligente</li>
+              <li>✓ Fácil de educar</li>
+            </ul>
+            <a href="/caniche-toy-granada/" class="btn btn-primary">Ver cachorros Caniche Toy</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- GARANTÍAS -->
+  <section class="section garantia-section">
+    <div class="container">
+      <h2>Por qué elegirnos para comprar tu cachorro en Granada</h2>
+      <p class="section-intro">Somos un centro canino autorizado con más de 15 años de experiencia. Aquí te explicamos qué incluye cada cachorro.</p>
+      <div class="garantia-grid">
+        <div class="garantia-item">
+          <div class="garantia-icon">🌿</div>
+          <h3>Criados en semilibertad</h3>
+          <p>Nuestros cachorros nacen y crecen en un entorno rural natural en la vega de Granada. No en instalaciones cerradas — en plena naturaleza.</p>
+        </div>
+        <div class="garantia-item">
+          <div class="garantia-icon">🏥</div>
+          <h3>Garantía sanitaria</h3>
+          <p>Vacunación completa, microchip, desparasitación y certificado veterinario de salud. Documentación 100% en regla.</p>
+        </div>
+        <div class="garantia-item">
+          <div class="garantia-icon">📋</div>
+          <h3>Centro autorizado</h3>
+          <p>Somos un centro registrado con Núcleo Zoológico 175GR00211. Cría ética, responsable y totalmente legal.</p>
+        </div>
+        <div class="garantia-item">
+          <div class="garantia-icon">📞</div>
+          <h3>Asesoramiento post-venta</h3>
+          <p>Te acompañamos en los primeros meses: alimentación, salud, educación. No te dejamos solo con tu nuevo compañero.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-section">
+    <div class="container">
+      <h2>Preguntas frecuentes sobre comprar cachorros en Granada</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>¿Con qué documentación sale el cachorro?</summary>
+          <p>Todos los cachorros incluyen: cartilla de vacunación actualizada, microchip registrado, certificado veterinario de salud, desparasitación interna y externa. Opcional: pedigrí LOE en razas que lo llevan.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Puedo visitar las instalaciones antes de decidir?</summary>
+          <p>Sí, siempre. Te recomendamos que vengas a conocer al cachorro, las instalaciones y si es posible a la madre. Llámanos al 958 269 455 para concertar visita.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Con qué edad salen los cachorros?</summary>
+          <p>Nunca antes de las 8 semanas. En muchos casos esperamos hasta las 10-12 semanas para que el cachorro esté mejor preparado para su nueva familia.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Cuánto cuesta un cachorro en Granada?</summary>
+          <p>El precio varía según la raza. Contáctanos para conocer el precio exacto de la raza que te interesa y la disponibilidad actual.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Hacéis envíos fuera de Granada?</summary>
+          <p>Principalmente trabajamos con clientes de Granada y provincia. Para otras provincias, consúltanos y valoramos cada caso individualmente.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-section">
+    <div class="container">
+      <div class="cta-box">
+        <h2>¿Listo para encontrar tu cachorro en Granada?</h2>
+        <p>Llámanos y te informamos de los cachorros disponibles, precios y próximas camadas.</p>
+        <div class="cta-actions">
+          <a href="tel:+34958269455" class="btn btn-gold">📞 958 269 455</a>
+          <a href="mailto:info@centropuppyhome.com" class="btn btn-outline" style="border-color:white;color:white;">✉️ Enviar email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+.breadcrumb { background: var(--warm-white); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.breadcrumb ol { list-style: none; display: flex; gap: 0.5rem; font-size: 0.85rem; color: var(--text-light); flex-wrap: wrap; }
+.breadcrumb li:not(:last-child)::after { content: ' /'; }
+.breadcrumb a { color: var(--text-light); }
+
+.landing-hero { background: linear-gradient(135deg, #fdf0e4, #fdf8f2); padding: 5rem 0; border-bottom: 1px solid var(--border); }
+.landing-hero-content { max-width: 700px; }
+.landing-hero-content .badge { margin-bottom: 1.5rem; }
+.landing-hero-content h1 { margin-bottom: 1.5rem; }
+.lead { font-size: 1.1rem; margin-bottom: 2rem; }
+.hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.section-intro { max-width: 680px; margin-bottom: 2.5rem; color: var(--text-mid); }
+
+.razas-landing-grid { display: grid; gap: 2rem; }
+.raza-feature { display: grid; grid-template-columns: 240px 1fr; }
+.raza-feature-img { display: flex; align-items: center; justify-content: center; font-size: 4rem; min-height: 180px; }
+.raza-feature-body { padding: 2rem; }
+.raza-feature-body .badge { margin-bottom: 0.75rem; }
+.raza-feature-body h3 { margin-bottom: 0.75rem; }
+.raza-features { list-style: none; margin: 1rem 0 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; }
+.raza-features li { font-size: 0.88rem; color: var(--text-mid); }
+
+.garantia-section { background: var(--warm-white); }
+.garantia-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; margin-top: 2rem; }
+.garantia-item { background: white; border-radius: var(--radius); padding: 1.5rem; border: 1px solid var(--border); text-align: center; }
+.garantia-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+.garantia-item h3 { margin-bottom: 0.5rem; font-size: 1rem; }
+.garantia-item p { font-size: 0.88rem; }
+
+.faq-list { max-width: 780px; margin-top: 2rem; }
+.faq-item { border-bottom: 1px solid var(--border); padding: 1.25rem 0; }
+.faq-item summary { font-weight: 600; cursor: pointer; font-size: 1rem; color: var(--brown-deep); list-style: none; display: flex; justify-content: space-between; }
+.faq-item summary::after { content: '+'; color: var(--gold); }
+.faq-item[open] summary::after { content: '−'; }
+.faq-item p { margin-top: 0.75rem; font-size: 0.95rem; }
+
+.cta-section { background: var(--brown-deep); }
+.cta-box { text-align: center; max-width: 580px; margin: 0 auto; }
+.cta-box h2 { color: white; margin-bottom: 1rem; }
+.cta-box p { color: rgba(255,255,255,0.7); margin-bottom: 2rem; }
+.cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+@media (max-width: 900px) {
+  .raza-feature { grid-template-columns: 1fr; }
+  .raza-features { grid-template-columns: 1fr; }
+  .garantia-grid { grid-template-columns: repeat(2,1fr); }
+  .hero-ctas { flex-direction: column; }
+}
+@media (max-width: 600px) {
+  .garantia-grid { grid-template-columns: 1fr; }
+}
+</style>
