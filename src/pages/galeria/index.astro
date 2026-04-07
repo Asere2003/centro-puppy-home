@@ -1,0 +1,757 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+
+const todasLasImagenes = import.meta.glob<{ default: ImageMetadata }>(
+  "../../assets/galeria/**/*.{jpg,jpeg,png,webp}",
+);
+
+const fotos = [
+  // CHIHUAHUA
+  {
+    archivo: "chihuahua/chihuahua-01.jpg",
+    categoria: "chihuahua",
+    raza: "Chihuahua",
+    alt: "Cachorro Chihuahua en Granada - Centro Puppy Home",
+    size: "normal",
+  },
+  {
+    archivo: "chihuahua/chihuahua-02.jpg",
+    categoria: "chihuahua",
+    raza: "Chihuahua",
+    alt: "Chihuahua cachorro Granada",
+    size: "tall",
+  },
+  {
+    archivo: "chihuahua/chihuahua-03.jpg",
+    categoria: "chihuahua",
+    raza: "Chihuahua",
+    alt: "Chihuahua mini Granada",
+    size: "normal",
+  },
+
+  // POMERANIA
+  {
+    archivo: "pomerania/pomerania-01.jpg",
+    categoria: "pomerania",
+    raza: "Pomerania",
+    alt: "Cachorro Pomerania en Granada - Centro Puppy Home",
+    size: "wide",
+  },
+  {
+    archivo: "pomerania/pomerania-02.jpg",
+    categoria: "pomerania",
+    raza: "Pomerania",
+    alt: "Cachorro Pomerania en Granada - Centro Puppy Home",
+    size: "wide",
+  },
+
+  {
+    archivo: "pomerania/pomerania-03.jpg",
+    categoria: "pomerania",
+    raza: "Pomerania",
+    alt: "Cachorro Pomerania en Granada - Centro Puppy Home",
+    size: "wide",
+  },
+
+  // YORKSHIRE
+  {
+    archivo: "yorkshire/yorkshire-01.jpg",
+    categoria: "yorkshire",
+    raza: "Yorkshire",
+    alt: "Cachorro Yorkshire en Granada - Centro Puppy Home",
+    size: "normal",
+  },
+  {
+    archivo: "yorkshire/yorkshire-02.jpg",
+    categoria: "yorkshire",
+    raza: "Yorkshire",
+    alt: "Cachorro Yorkshire en Granada - Centro Puppy Home",
+    size: "normal",
+  },
+
+  {
+    archivo: "yorkshire/yorkshire-03.jpg",
+    categoria: "yorkshire",
+    raza: "Yorkshire",
+    alt: "Cachorro Yorkshire en Granada - Centro Puppy Home",
+    size: "normal",
+  },
+
+  // BICHÓN MALTÉS
+  {
+    archivo: "bichon/bichon-01.jpg",
+    categoria: "bichon-maltes",
+    raza: "Bichón Maltés",
+    alt: "Bichón Maltés cachorro Granada",
+    size: "tall",
+  },
+  {
+    archivo: "bichon/bichon-02.jpg",
+    categoria: "bichon-maltes",
+    raza: "Bichón Maltés",
+    alt: "Bichón Maltés cachorro Granada",
+    size: "tall",
+  },
+  {
+    archivo: "bichon/bichon-03.jpg",
+    categoria: "bichon-maltes",
+    raza: "Bichón Maltés",
+    alt: "Bichón Maltés cachorro Granada",
+    size: "tall",
+  },
+
+  // CANICHE TOY
+  {
+    archivo: "caniche-toy/caniche-01.jpg",
+    categoria: "caniche-toy",
+    raza: "Caniche Toy",
+    alt: "Caniche Toy cachorro Granada",
+    size: "normal",
+  },
+    {
+    archivo: "caniche-toy/caniche-02.jpg",
+    categoria: "caniche-toy",
+    raza: "Caniche Toy",
+    alt: "Caniche Toy cachorro Granada",
+    size: "normal",
+  },
+    {
+    archivo: "caniche-toy/caniche-03.jpg",
+    categoria: "caniche-toy",
+    raza: "Caniche Toy",
+    alt: "Caniche Toy cachorro Granada",
+    size: "normal",
+  },
+
+  // INSTALACIONES
+  {
+    archivo: "instalaciones/instalaciones-01.jpg",
+    categoria: "instalaciones",
+    raza: "Instalaciones",
+    alt: "Centro Puppy Home instalaciones Granada",
+    size: "wide",
+  },
+
+  // FAMILIAS
+  {
+    archivo: "familias/familias-01.jpg",
+    categoria: "familias",
+    raza: "Familias felices",
+    alt: "Familia feliz con cachorro Granada",
+    size: "wide",
+  },
+  {
+    archivo: "familias/familias-02.jpg",
+    categoria: "familias",
+    raza: "Familias felices",
+    alt: "Familia feliz con cachorro Granada",
+    size: "wide",
+  },
+];
+
+const fotosResueltas = await Promise.all(
+  fotos.map(async (foto) => {
+    const key = `../../assets/galeria/${foto.archivo}`;
+    const loader = todasLasImagenes[key];
+    let imagen = null;
+    if (loader) {
+      try {
+        imagen = (await loader()).default;
+      } catch (e) {}
+    }
+    return { ...foto, imagen };
+  }),
+);
+
+const categorias = [
+  { id: "todos", label: "Todos" },
+  { id: "chihuahua", label: "Chihuahua" },
+  { id: "pomerania", label: "Pomerania" },
+  { id: "yorkshire", label: "Yorkshire" },
+  { id: "bichon-maltes", label: "Bichón Maltés" },
+  { id: "caniche-toy", label: "Caniche Toy" },
+  { id: "instalaciones", label: "Instalaciones" },
+  { id: "familias", label: "Familias felices" },
+];
+
+const emojiPorCategoria: Record<string, string> = {
+  chihuahua: "🐕",
+  pomerania: "🦊",
+  yorkshire: "🐶",
+  "bichon-maltes": "🤍",
+  "caniche-toy": "🐩",
+  instalaciones: "🌿",
+  familias: "❤️",
+};
+---
+
+<BaseLayout
+  title="Galería de Cachorros en Granada | Centro Puppy Home"
+  description="Fotos de nuestros cachorros toy en Granada. Chihuahua, Pomerania, Yorkshire, Bichón Maltés y Caniche Toy criados en semilibertad. Imágenes reales de nuestro centro."
+  canonical="https://centropuppyhome.com/galeria/"
+>
+  <nav class="breadcrumb" aria-label="Ruta de navegación">
+    <div class="container">
+      <ol>
+        <li><a href="/">Inicio</a></li>
+        <li aria-current="page">Galería</li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="galeria-hero">
+    <div class="container">
+      <span class="badge badge-gold">Nuestros cachorros</span>
+      <h1>Galería de cachorros en Granada</h1>
+      <p>
+        Cada imagen cuenta una pequeña historia de amor, juegos y nuevos
+        comienzos. Primeras caricias, primeras miradas y esos instantes en los
+        que todo cambia.
+      </p>
+    </div>
+  </section>
+
+  <section class="galeria-section">
+    <div class="container">
+      <div class="filtros" role="group" aria-label="Filtrar por raza">
+        {
+          categorias.map((cat) => (
+            <button
+              class={`filtro-btn${cat.id === "todos" ? " active" : ""}`}
+              data-filtro={cat.id}
+            >
+              {cat.label}
+            </button>
+          ))
+        }
+      </div>
+
+      <div class="galeria-grid" id="galeriaGrid">
+        {
+          fotosResueltas.map((foto, i) => (
+            <div
+              class={`foto-item${foto.size === "tall" ? " tall" : foto.size === "wide" ? " wide" : ""}`}
+              data-categoria={foto.categoria}
+              data-index={i}
+              data-alt={foto.alt}
+              data-raza={foto.raza}
+              data-src={foto.imagen ? foto.archivo : ""}
+            >
+              {foto.imagen ? (
+                <Image
+                  src={foto.imagen}
+                  alt={foto.alt}
+                  width={800}
+                  height={600}
+                  format="webp"
+                  loading="lazy"
+                />
+              ) : (
+                <div class="placeholder-inner">
+                  <span class="placeholder-emoji">
+                    {emojiPorCategoria[foto.categoria]}
+                  </span>
+                  <span class="placeholder-text">{foto.raza}</span>
+                </div>
+              )}
+              <div class="foto-overlay">
+                <span class="foto-raza">{foto.raza}</span>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="sin-resultados" id="sinResultados" style="display:none;">
+        <span>🔍</span>
+        <p>No hay fotos en esta categoría todavía. ¡Pronto habrá más!</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar"
+      >✕</button
+    >
+    <button class="lightbox-prev" id="lightboxPrev" aria-label="Anterior"
+      >‹</button
+    >
+    <button class="lightbox-next" id="lightboxNext" aria-label="Siguiente"
+      >›</button
+    >
+    <div class="lightbox-content">
+      <img id="lightboxImg" src="" alt="" />
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+  </div>
+
+  <section class="section galeria-cta">
+    <div class="container">
+      <div class="cta-box">
+        <h2>¿Te has enamorado de alguno?</h2>
+        <p>
+          Llámanos y te informamos de los cachorros disponibles ahora mismo en
+          Granada.
+        </p>
+        <div class="cta-actions">
+          <a href="tel:+34958269455" class="btn btn-gold">📞 958 269 455</a>
+          <a
+            href="/cachorros-granada/"
+            class="btn btn-outline"
+            style="border-color:white;color:white;">Ver razas disponibles</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style is:global>
+  /* Breadcrumb */
+  .breadcrumb {
+    background: var(--warm-white);
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem 0;
+  }
+  .breadcrumb ol {
+    list-style: none;
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+  }
+  .breadcrumb li:not(:last-child)::after {
+    content: " /";
+  }
+  .breadcrumb a {
+    color: var(--text-light);
+    text-decoration: none;
+  }
+  .breadcrumb a:hover {
+    color: var(--brown-mid);
+  }
+
+  /* Hero */
+  .galeria-hero {
+    background: linear-gradient(135deg, #fdf0e4, #fdf8f2);
+    padding: 4rem 0 3rem;
+    text-align: center;
+  }
+  .galeria-hero .badge {
+    margin-bottom: 1rem;
+  }
+  .galeria-hero h1 {
+    margin-bottom: 1rem;
+  }
+  .galeria-hero p {
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--text-mid);
+    font-size: 1.05rem;
+  }
+
+  /* Sección */
+  .galeria-section {
+    padding: 2.5rem 0 4rem;
+  }
+
+  /* Filtros */
+  .filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+  }
+  .filtro-btn {
+    padding: 0.5rem 1.1rem;
+    border-radius: 100px;
+    border: 2px solid var(--border);
+    background: white;
+    color: var(--text-mid);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .filtro-btn:hover {
+    border-color: var(--brown-mid);
+    color: var(--brown-mid);
+  }
+  .filtro-btn.active {
+    background: var(--brown-mid);
+    border-color: var(--brown-mid);
+    color: white;
+  }
+
+  /* Grid masonry — sin aspect-ratio fijo, deja que la imagen mande */
+  .galeria-grid {
+    columns: 3;
+    column-gap: 1rem;
+  }
+
+  .foto-item {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    background: var(--warm-white);
+  }
+  .foto-item.hidden {
+    display: none;
+  }
+
+  /* Imagen de Astro — fluye con su altura natural */
+  .foto-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s ease;
+    border-radius: 12px;
+  }
+  .foto-item:hover img {
+    transform: scale(1.04);
+  }
+
+  /* Placeholder cuando no hay imagen */
+  .placeholder-inner {
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 2px dashed var(--border);
+    border-radius: 12px;
+  }
+  .foto-item.tall .placeholder-inner {
+    aspect-ratio: 2/3;
+  }
+  .foto-item.wide .placeholder-inner {
+    aspect-ratio: 4/3;
+  }
+
+  .foto-item:nth-child(5n + 1) .placeholder-inner {
+    background: linear-gradient(135deg, #fce8d0, #fdf3e8);
+  }
+  .foto-item:nth-child(5n + 2) .placeholder-inner {
+    background: linear-gradient(135deg, #fef3d0, #fdf8e8);
+  }
+  .foto-item:nth-child(5n + 3) .placeholder-inner {
+    background: linear-gradient(135deg, #e8f4e8, #f0f8f0);
+  }
+  .foto-item:nth-child(5n + 4) .placeholder-inner {
+    background: linear-gradient(135deg, #f7e8f0, #fdf0f8);
+  }
+  .foto-item:nth-child(5n + 5) .placeholder-inner {
+    background: linear-gradient(135deg, #e8eef8, #f0f4fc);
+  }
+  .placeholder-emoji {
+    font-size: 2.5rem;
+  }
+  .placeholder-text {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-weight: 500;
+  }
+
+  /* Overlay */
+  .foto-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem 1rem 0.75rem;
+    background: linear-gradient(transparent, rgba(44, 24, 16, 0.75));
+    opacity: 0;
+    transition: opacity 0.3s;
+    border-radius: 0 0 12px 12px;
+  }
+  .foto-item:hover .foto-overlay {
+    opacity: 1;
+  }
+  .foto-raza {
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* Sin resultados */
+  .sin-resultados {
+    text-align: center;
+    padding: 4rem 0;
+    color: var(--text-light);
+  }
+  .sin-resultados span {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  /* Lightbox */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 10, 5, 0.95);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+  .lightbox.open {
+    display: flex;
+  }
+  .lightbox-content {
+    max-width: 90vw;
+    max-height: 90vh;
+    text-align: center;
+  }
+  .lightbox-content img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 12px;
+    object-fit: contain;
+  }
+  .lightbox-caption {
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 1rem;
+    font-size: 0.9rem;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: white;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+  .lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  .lightbox-prev,
+  .lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+  .lightbox-prev {
+    left: 1rem;
+  }
+  .lightbox-next {
+    right: 1rem;
+  }
+  .lightbox-prev:hover,
+  .lightbox-next:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  /* CTA */
+  .galeria-cta {
+    background: var(--brown-deep);
+  }
+  .galeria-cta .cta-box {
+    text-align: center;
+    max-width: 580px;
+    margin: 0 auto;
+  }
+  .galeria-cta h2 {
+    color: white;
+    margin-bottom: 1rem;
+  }
+  .galeria-cta p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2rem;
+  }
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .galeria-grid {
+      columns: 2;
+    }
+  }
+  @media (max-width: 500px) {
+    .galeria-grid {
+      columns: 2;
+      column-gap: 0.5rem;
+    }
+    .foto-item {
+      margin-bottom: 0.5rem;
+    }
+    .filtros {
+      gap: 0.4rem;
+    }
+    .filtro-btn {
+      font-size: 0.78rem;
+      padding: 0.4rem 0.85rem;
+    }
+    .lightbox-prev {
+      left: 0.25rem;
+    }
+    .lightbox-next {
+      right: 0.25rem;
+    }
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    const filtros = document.querySelectorAll(".filtro-btn");
+    const items = document.querySelectorAll(".foto-item");
+    const sinRes = document.getElementById("sinResultados");
+    const lightbox = document.getElementById("lightbox");
+    const lbImg = document.getElementById("lightboxImg");
+    const lbCaption = document.getElementById("lightboxCaption");
+    const lbClose = document.getElementById("lightboxClose");
+    const lbPrev = document.getElementById("lightboxPrev");
+    const lbNext = document.getElementById("lightboxNext");
+
+    let currentIndex = 0;
+    let visibles = [];
+
+    function getVisibles() {
+      return Array.from(items).filter((i) => !i.classList.contains("hidden"));
+    }
+
+    filtros.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        filtros.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        const f = btn.dataset.filtro;
+        let n = 0;
+        items.forEach(function (item) {
+          const show = f === "todos" || item.dataset.categoria === f;
+          item.classList.toggle("hidden", !show);
+          if (show) n++;
+        });
+        sinRes.style.display = n === 0 ? "block" : "none";
+      });
+    });
+
+    function openLightbox(item) {
+      visibles = getVisibles();
+      currentIndex = visibles.indexOf(item);
+      showSlide();
+      lightbox.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    function showSlide() {
+      const item = visibles[currentIndex];
+      if (!item) return;
+      // Coger el src de la imagen real dentro del item
+      const imgEl = item.querySelector("img");
+      lbImg.src = imgEl ? imgEl.src : "";
+      lbImg.alt = item.dataset.alt || "";
+      lbCaption.textContent = item.dataset.raza || "";
+      lbPrev.style.opacity = currentIndex === 0 ? "0.3" : "1";
+      lbNext.style.opacity = currentIndex === visibles.length - 1 ? "0.3" : "1";
+    }
+
+    items.forEach(function (item) {
+      item.addEventListener("click", function () {
+        openLightbox(item);
+      });
+    });
+
+    lbClose.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", function (e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    lbPrev.addEventListener("click", function () {
+      if (currentIndex > 0) {
+        currentIndex--;
+        showSlide();
+      }
+    });
+    lbNext.addEventListener("click", function () {
+      if (currentIndex < visibles.length - 1) {
+        currentIndex++;
+        showSlide();
+      }
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (!lightbox.classList.contains("open")) return;
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft" && currentIndex > 0) {
+        currentIndex--;
+        showSlide();
+      }
+      if (e.key === "ArrowRight" && currentIndex < visibles.length - 1) {
+        currentIndex++;
+        showSlide();
+      }
+    });
+
+    // ── Swipe en lightbox ──
+    let touchStartX = 0;
+
+    lightbox.addEventListener(
+      "touchstart",
+      function (e) {
+        touchStartX = e.touches[0].clientX;
+      },
+      { passive: true },
+    );
+
+    lightbox.addEventListener(
+      "touchend",
+      function (e) {
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) < 50) return; // ignora taps cortos
+        if (dx < 0 && currentIndex < visibles.length - 1) {
+          currentIndex++;
+          showSlide();
+        } else if (dx > 0 && currentIndex > 0) {
+          currentIndex--;
+          showSlide();
+        }
+      },
+      { passive: true },
+    );
+  })();
+</script>

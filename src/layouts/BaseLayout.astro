@@ -83,6 +83,35 @@ const canonicalURL = canonical || Astro.url.href;
   </script>
 
   <style is:global>
+
+    /* ── ESPACIO HERO ── */
+    .galeria-hero {
+      padding: 4rem 0 3rem;
+    }
+    .galeria-section {
+      padding: 2.5rem 0 4rem;
+    }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb {
+      background: var(--warm-white);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 0;
+    }
+    .breadcrumb ol {
+      list-style: none;
+      display: flex;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+    }
+    .breadcrumb li:not(:last-child)::after { content: ' /'; }
+    .breadcrumb a { color: var(--text-light); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--brown-mid); }
+
     .site-header {
       background: #fff9f4;
       border-bottom: 1px solid #e8d5c4;
@@ -337,6 +366,7 @@ const canonicalURL = canonical || Astro.url.href;
             </ul>
           </li>
           <li><a href="/blog/">Blog</a></li>
+          <li><a href="/galeria/">Galería</a></li>
           <li><a href="tel:+34958269455">958 269 455</a></li>
           <li><a href="/#contacto" class="btn-contactar">Contactar</a></li>
         </ul>
@@ -358,6 +388,7 @@ const canonicalURL = canonical || Astro.url.href;
     <a href="/bichon-maltes-granada/" class="menu-link">Bichón Maltés</a>
     <a href="/caniche-toy-granada/" class="menu-link">Caniche Toy</a>
     <a href="/blog/" class="menu-link">Blog</a>
+    <a href="/galeria/" class="menu-link">Galería</a>
     <a href="/#contacto" class="btn-mobile-contactar menu-link">Contactar</a>
   </nav>
 
